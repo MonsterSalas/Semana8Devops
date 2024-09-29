@@ -19,7 +19,7 @@ jobs:
           command: 'buildAndPush'
           containerRegistry: '$(SERVICE_CONNECTION_NAME)'
           repository: '$(ACR_NAME).azurecr.io/$(IMAGE_NAME)'
-          dockerfile: '**/Dockerfile'
+          dockerfile: 'Dockerfile'  # Ruta correcta del Dockerfile desde el directorio raíz
           tags: |
             latest
-        displayName: 'Build and Push Docker Image ACR'
+        displayName: 'Build and Push Docker Image'
