@@ -1,0 +1,111 @@
+<div class="container-fluid body">
+
+    <!--//////////NAVBAR//////////-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/index">
+                <img src="assets/img/logoEmpresa.png" alt="Logo de la empresa" width="35" height="35"
+                    class="d-inline-block align-text-top">
+                <span class="ms-2">Paradise Essence</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Marcas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Jean Paul Gaultier</a></li>
+                            <li><a class="dropdown-item" href="#">Versace</a></li>
+                            <li><a class="dropdown-item" href="#">Lattafa</a></li>
+                            <li><a class="dropdown-item" href="#">Afnan</a></li>
+                            <li><a class="dropdown-item" href="#">Moschino</a></li>
+                            <li><a class="dropdown-item" href="#">Paco Rabanne</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Perfumes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Para Hombre</a></li>
+                            <li><a class="dropdown-item" href="#">Para Mujer</a></li>
+                            <li><a class="dropdown-item" href="#">Perfumes Unisex</a></li>
+                            <li><a class="dropdown-item" href="#">Perfumes Árabes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex flex-grow-1 mx-3" role="search">
+                    <input class="form-control me-2 flex-grow-1" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login">
+                            <i class="fas fa-user"></i><br>
+                            Ingresar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <h2>Recuperar Contraseña</h2>
+        <form [formGroup]="recoveryForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+                <label for="recoverEmail">Correo Electrónico:</label>
+                <input type="email" formControlName="email" class="form-control" id="recoverEmail" required>
+            </div>
+            <div *ngIf="recoveryErrorMessages.length > 0" class="alert alert-danger my-2">
+                <ul>
+                    <li *ngFor="let error of recoveryErrorMessages">{{ error }}</li>
+                </ul>
+            </div>
+            <div *ngIf="recoveryMessages.length > 0" class="alert alert-success my-2">
+                <ul>
+                    <li *ngFor="let message of recoveryMessages">{{ message }}</li>
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Recuperar</button>
+        </form>
+    </div>
+
+
+
+
+    <!--//////////FOOTER//////////-->
+    <footer class="card text-center">
+        <div class="card-header">
+            ¡Descubre la esencia del paraíso con Paradise Essence!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">¡Explora nuestro mundo de fragancias únicas!</h5>
+            <p class="card-text">Sumérgete en una experiencia sensorial con nuestras exquisitas fragancias. Encuentra la
+                perfecta para cada ocasión y deja que Paradise Essence te transporte a un paraíso olfativo inigualable.
+            </p>
+            <a routerLink="/index" class="btn btn-primary">Explorar Perfumes</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+            Síguenos en las redes sociales para descubrir las últimas novedades y ofertas exclusivas<br>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+</div>

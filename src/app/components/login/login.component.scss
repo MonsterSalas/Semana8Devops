@@ -1,0 +1,30 @@
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.container {
+    max-width: 500px;
+    margin-top: 50px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.alert {
+    margin-top: 1rem;
+}

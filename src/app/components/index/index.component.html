@@ -1,0 +1,223 @@
+<!--//////////NAVBAR//////////-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/index">
+            <img src="assets/img/logoEmpresa.png" alt="Logo de la empresa" width="35" height="35"
+                class="d-inline-block align-text-top">
+            <span class="ms-2">Paradise Essence</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Marcas
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Jean Paul Gaultier</a></li>
+                        <li><a class="dropdown-item" href="#">Versace</a></li>
+                        <li><a class="dropdown-item" href="#">Lattafa</a></li>
+                        <li><a class="dropdown-item" href="#">Afnan</a></li>
+                        <li><a class="dropdown-item" href="#">Moschino</a></li>
+                        <li><a class="dropdown-item" href="#">Paco Rabanne</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Perfumes
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Para Hombre</a></li>
+                        <li><a class="dropdown-item" href="#">Para Mujer</a></li>
+                        <li><a class="dropdown-item" href="#">Perfumes Unisex</a></li>
+                        <li><a class="dropdown-item" href="#">Perfumes Árabes</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex flex-grow-1 mx-3" role="search">
+                <input class="form-control me-2 flex-grow-1" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0 text-center">
+                <li class="nav-item" *ngIf="!sesionActiva; else perfilTemplate" id="loginNavItem">
+                    <a class="nav-link" routerLink="/login">
+                      <i class="fas fa-user"></i><br>
+                      Ingresar
+                    </a>
+                  </li>
+              
+                  <ng-template #perfilTemplate>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/profile">
+                        <i class="fas fa-user"></i><br>
+                        Perfil
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" (click)="cerrarSesion()">
+                        <i class="fas fa-sign-out-alt"></i><br>
+                        Cerrar Sesión
+                      </a>
+                    </li>
+                  </ng-template>
+                <li class="nav-item position-relative">
+                    <a class="nav-link" (click)="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i><br>
+                        Carrito
+                        <span class="badge bg-danger position-absolute top-0 translate-middle badge-cart-count mt-2"
+                            *ngIf="cartItemCount > 0">{{ cartItemCount }}</span>
+                    </a>
+                    <!-- Acordeón del Carrito -->
+                    <div class="cart-accordion" *ngIf="showCart">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Carrito de Compras</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        *ngFor="let item of cart">
+                                        <div>
+                                            <span>{{ item.quantity }}x {{ item.product.name }}</span>
+                                            <span class="d-block text-muted">{{ formatPrice(item.product.price *
+                                                item.quantity) }}</span>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-danger"
+                                            (click)="removeFromCart(item.product)">×</button>
+                                    </li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>Total: {{ formatPrice(cartTotal) }}</strong></p>
+                                    <div class="d-flex justify-content-around">
+                                        <button class="btn btn-primary" (click)="closeCart()">Cerrar</button>
+                                        <button class="btn btn-success">Pagar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--//////////CAROUSEL//////////-->
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="#">
+                <img src="assets/img/ARMAF.jpg" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="#">
+                <img src="assets/img/ASAD.jpg" class="d-block w-100" alt="...">
+            </a>
+
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container-fluid">
+    <!-- Filtro de productos -->
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="priceFilter" class="form-label">Filtrar por precio:</label>
+                <select id="priceFilter" class="form-select" (change)="onPriceFilterChange($event)">
+                    <option value="all">Todos</option>
+                    <option value="0-30000">0 - 30.000</option>
+                    <option value="30001-60000">30.001 - 60.000</option>
+                    <option value="60001-100000">60.001 - 100.000</option>
+                    <option value="100001-">Más de 100.000</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="brandFilter" class="form-label">Filtrar por marca:</label>
+                <select id="brandFilter" class="form-select" (change)="onBrandFilterChange($event)">
+                    <option value="all">Todas</option>
+                    <option value="Jean Paul Gaultier">Jean Paul Gaultier</option>
+                    <option value="Versace">Versace</option>
+                    <option value="Lattafa">Lattafa</option>
+                    <option value="Afnan">Afnan</option>
+                    <option value="Moschino">Moschino</option>
+                    <option value="Paco Rabanne">Paco Rabanne</option>
+                    <option value="Givenchy">Givenchy</option>
+                    <option value="Halloween">Halloween</option>
+                    <option value="Viktor&Rolf">Viktor&Rolf</option>
+                    <option value="Azzaro">Azzaro</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTOS -->
+    <div class="container-fluid">
+        <div class="container my-5">
+            <div class="row">
+                <div *ngFor="let product of filteredProducts" class="col-lg-2 col-md-3 col-6 mb-2">
+                    <div class="card product-card">
+                        <img [src]="product.image" class="card-img-top" [alt]="product.name">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text card-price"><strong>{{ formatPrice(product.price) }}</strong></p>
+                            <a class="btn btn-primary add-to-cart" (click)="addToCart(product)">
+                                <i class="fas fa-shopping-cart"></i> Añadir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--//////////FOOTER//////////-->
+    <footer class="card text-center">
+        <div class="card-header">
+            ¡Descubre la esencia del paraíso con Paradise Essence!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">¡Explora nuestro mundo de fragancias únicas!</h5>
+            <p class="card-text">Sumérgete en una experiencia sensorial con nuestras exquisitas fragancias.
+                Encuentra la
+                perfecta para cada ocasión y deja que Paradise Essence te transporte a un paraíso olfativo
+                inigualable.
+            </p>
+            <a href="#" class="btn btn-primary">Explorar Perfumes</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+            Síguenos en las redes sociales para descubrir las últimas novedades y ofertas exclusivas<br>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary me-1"><i class="fab fa-pinterest"></i></a>
+            <a href="#" class="text-decoration-none text-body-secondary"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+</div>

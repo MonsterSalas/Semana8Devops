@@ -1,0 +1,93 @@
+.sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+.product-card {
+    height: 100%;
+    transition: all 0.3s;
+    border: none;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.product-card .card-body>p {
+    margin-top: auto;
+    /* Empuja el precio hacia abajo */
+}
+
+.productos,
+.carrito {
+    width: 45%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+.productos {
+    background-color: #f9f9f9;
+}
+
+.carrito {
+    background-color: #e1f5fe;
+}
+
+.cart-accordion {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1000;
+    width: 300px;
+}
+
+.cart-accordion .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-accordion .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cart-accordion .card-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cart-accordion .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.cart-accordion .list-group-item div {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.cart-accordion .list-group-item button {
+    margin-left: 10px;
+}
+
+.cart-accordion .card-body .mt-3 {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.cart-accordion .card-body .d-flex {
+    justify-content: space-between;
+}
+

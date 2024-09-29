@@ -1,0 +1,638 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>paradise-essence documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">paradise-essence documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Product</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/components/admin/admin.component.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Componente que permite administrar los productos de la tienda y los usuarios registrados.</p>
+<ol>
+<li>Verificar sesión activa</li>
+<li>Formatear precio a moneda local (CLP)</li>
+<li>Editar producto</li>
+<li>Guardar cambios del producto editado</li>
+<li>Cancelar edición</li>
+<li>Cerrar sesión</li>
+<li>Cargar usuarios</li>
+<li>Eliminar usuario</li>
+<li>Obtener ruta de la imagen de perfil</li>
+</ol>
+
+            </p>
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#brand" 
+>
+                                            brand
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#description" 
+>
+                                            description
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#image" 
+>
+                                            image
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#name" 
+>
+                                            name
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#price" 
+>
+                                            price
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="brand"></a>
+                                        <span class="name "><b>brand</b>
+                                            <a href="#brand">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>brand:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="description"></a>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>description:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="image"></a>
+                                        <span class="name "><b>image</b>
+                                            <a href="#image">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>image:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="price"></a>
+                                        <span class="name "><b>price</b>
+                                            <a href="#price">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>price:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { RouterOutlet, RouterLink } from &#x27;@angular/router&#x27;;
+
+/**
+ * @description
+ * Componente que permite administrar los productos de la tienda y los usuarios registrados.
+ * 
+ * @usageNotes
+ * 1. Verificar sesión activa
+ * 2. Formatear precio a moneda local (CLP)
+ * 3. Editar producto
+ * 4. Guardar cambios del producto editado
+ * 5. Cancelar edición
+ * 6. Cerrar sesión
+ * 7. Cargar usuarios
+ * 8. Eliminar usuario
+ * 9. Obtener ruta de la imagen de perfil
+**/
+
+
+interface Product {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    brand: string;
+    image: string;
+}
+
+@Component({
+    selector: &#x27;app-admin&#x27;,
+    standalone: true,
+    imports: [CommonModule, FormsModule, RouterOutlet, RouterLink],
+    templateUrl: &#x27;./admin.component.html&#x27;,
+    styleUrls: [&#x27;./admin.component.scss&#x27;],
+})
+
+export class AdminComponent implements OnInit {
+    usuarios: any[] &#x3D; [];
+    constructor(private router: Router) { }
+    sesionActiva &#x3D; false;
+
+    products: Product[] &#x3D; [
+        { id: 1, name: &#x27;Club De Nuit Woman&#x27;, description: &#x27;Armaf EDP 100ml&#x27;, price: 45000, brand: &#x27;Armaf&#x27;, image: &#x27;assets/img/cdnWoman.jpg&#x27; },
+        { id: 2, name: &#x27;Eros Flame&#x27;, description: &#x27;Versace EDP 100ml&#x27;, price: 75000, brand: &#x27;Versace&#x27;, image: &#x27;assets/img/erosFlame.jpg&#x27; },
+        { id: 3, name: &#x27;Gentleman Intense&#x27;, description: &#x27;Givenchy EDT 100ml&#x27;, price: 65000, brand: &#x27;Givenchy&#x27;, image: &#x27;assets/img/gentleman.jpg&#x27; },
+        { id: 4, name: &#x27;Scandal Pour Homme&#x27;, description: &#x27;Jean Paul Gaultier EDT 100ml&#x27;, price: 80000, brand: &#x27;Jean Paul Gaultier&#x27;, image: &#x27;assets/img/jpgEscandal.jpg&#x27; },
+        { id: 5, name: &#x27;Asad&#x27;, description: &#x27;Lattafa Perfumes EDP 100ml&#x27;, price: 35000, brand: &#x27;Lattafa&#x27;, image: &#x27;assets/img/laattafaAsad.jpg&#x27; },
+        { id: 6, name: &#x27;Halloween Man X&#x27;, description: &#x27;Halloween EDT 100ml&#x27;, price: 25000, brand: &#x27;Halloween&#x27;, image: &#x27;assets/img/manX.jpg&#x27; },
+        { id: 7, name: &#x27;Phantom&#x27;, description: &#x27;Paco Rabanne EDT 100ml&#x27;, price: 75000, brand: &#x27;Paco Rabanne&#x27;, image: &#x27;assets/img/phantom.jpg&#x27; },
+        { id: 8, name: &#x27;Toy Boy&#x27;, description: &#x27;Moschino EDP 100ml&#x27;, price: 80000, brand: &#x27;Moschino&#x27;, image: &#x27;assets/img/toyBoy.jpg&#x27; },
+        { id: 9, name: &#x27;Ultra Male&#x27;, description: &#x27;Jean Paul Gaultier EDT 75ml&#x27;, price: 50000, brand: &#x27;Jean Paul Gaultier&#x27;, image: &#x27;assets/img/jpgUltraMale.jpg&#x27; },
+        { id: 10, name: &#x27;Turathi Blue&#x27;, description: &#x27;Afnan EDT 100ml&#x27;, price: 32000, brand: &#x27;Afnan&#x27;, image: &#x27;assets/img/afnanTurathiBlue.jpg&#x27; },
+        { id: 11, name: &#x27;Spicebomb Extreme&#x27;, description: &#x27;Viktor&amp;Rolf EDP 100ml&#x27;, price: 120000, brand: &#x27;Viktor&amp;Rolf&#x27;, image: &#x27;assets/img/spiceBomb.jpg&#x27; },
+        { id: 12, name: &#x27;The Most Wanted&#x27;, description: &#x27;Azzaro EDP 100ml&#x27;, price: 85000, brand: &#x27;Azzaro&#x27;, image: &#x27;assets/img/theMostWanted.jpg&#x27; }
+    ];
+
+    selectedProduct: Product | null &#x3D; null;
+
+    ngOnInit(): void {
+        this.checkSession();
+        this.loadUsers();
+    }
+
+    /**
+     * Formatear precio a moneda local (CLP)
+     * 
+     * @param {number} price - Precio a formatear 
+     * @returns {string} - Precio formateado en moneda local
+    **/
+    formatPrice(price: number): string {
+        return new Intl.NumberFormat(&#x27;es-CL&#x27;, { style: &#x27;currency&#x27;, currency: &#x27;CLP&#x27; }).format(price);
+    }
+
+    /**
+     * Selección de producto para editar
+     * 
+     * @param {Product} product - Producto a editar
+     * @returns {void} 
+    **/
+    editProduct(product: Product): void {
+        this.selectedProduct &#x3D; { ...product }; // Crear una copia del producto para editar
+    }
+
+    // Guardar cambios del producto editado
+    saveProduct(): void {
+        if (this.selectedProduct) {
+            const index &#x3D; this.products.findIndex(p &#x3D;&gt; p.id &#x3D;&#x3D;&#x3D; this.selectedProduct!.id);
+            if (index !&#x3D;&#x3D; -1) {
+                this.products[index] &#x3D; this.selectedProduct;
+                this.selectedProduct &#x3D; null;
+            }
+        }
+    }
+
+    // Cancelar edición
+    cancelEdit(): void {
+        this.selectedProduct &#x3D; null;
+    }
+
+    // Verificar sesión
+    checkSession(): void {
+        const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+        const usuarioActivo &#x3D; usuarios.find((usuario: any) &#x3D;&gt; usuario.sesion &#x3D;&#x3D;&#x3D; true);
+
+        if (usuarioActivo) {
+            this.sesionActiva &#x3D; true;
+        }
+    }
+
+    // Cerrar sesión
+    cerrarSesion(): void {
+        const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+        const usuarioActivo &#x3D; usuarios.find((usuario: any) &#x3D;&gt; usuario.sesion &#x3D;&#x3D;&#x3D; true);
+
+        if (usuarioActivo) {
+            usuarioActivo.sesion &#x3D; false;
+            localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuarios));
+            this.sesionActiva &#x3D; false;
+            this.router.navigate([&#x27;/index&#x27;]);
+        }
+    }
+
+    loadUsers(): void {
+        const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+        this.usuarios &#x3D; usuarios;
+    }
+
+    eliminarUsuario(index: number): void {
+        if (confirm(&#x60;¿Estás seguro de eliminar al usuario ${this.usuarios[index].name}?&#x60;)) {
+            this.usuarios.splice(index, 1);
+            localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(this.usuarios));
+            alert(&#x27;Usuario eliminado correctamente.&#x27;);
+        }
+    }
+
+    getProfileImageSrc(email: string): string {
+        const profileImage &#x3D; localStorage.getItem(&#x60;profileImage_${email}&#x60;);
+        return profileImage ? profileImage : &#x27;assets/img/perfil.png&#x27;; // Ruta inicial de la imagen de perfil
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Product.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
