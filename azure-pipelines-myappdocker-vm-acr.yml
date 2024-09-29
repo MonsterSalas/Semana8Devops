@@ -8,13 +8,14 @@ variables:
   IMAGE_NAME: 'dockergrupo9'  # Se debe colocar el Nombre de la imagen que será descargada desde ACR
   ACR_NAME: 'acrgrupo9'  # Se debe colocar el Nombre de tu Azure Container Registry (ACR)
   ACR_USERNAME: 'acrgrupo9'  # Se debe colocar el Nombre de usuario del ACR
-  ACR_PASSWORD: 'BgKwsXHFuvVIwKpvKEmx6M+45EUV6ck0b5ZRjjteY9+ACRCthdhR'  # Se debe colocar la Contraseña del AC
+  ACR_PASSWORD: 'BgKwsXHFuvVIwKpvKEmx6M+45EUV6ck0b5ZRjjteY9+ACRCthdhR'  # Se debe colocar la Contraseña del ACR
+
 
 stages:
   - stage: Deploy
     jobs:
       - deployment: DeployToVM
-        displayName: 'Deploy Angular App to VM'
+        displayName: 'Deploy to VM'
         environment:
           name: 'VM-S8-9'  # Nombre del entorno configurado en Azure DevOps
           resourceType: VirtualMachine  # Especifica que se conecta a una máquina virtual
@@ -26,7 +27,6 @@ stages:
                     # Verificar e instalar Azure CLI en la máquina virtual
                     if ! command -v az &> /dev/null; then
                       echo "Azure CLI no está instalado. Instalando Azure CLI..."
-                      export DEBIAN_FRONTEND=noninteractive
                       sudo apt-get update && \
                       sudo apt-get install -y curl && \
                       curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && \
@@ -41,7 +41,7 @@ stages:
                     # Verificar e instalar Docker en la máquina virtual
                     if ! command -v docker &> /dev/null; then
                       echo "Docker no está instalado. Instalando Docker..."
-                      export DEBIAN_FRONTEND=noninteractive
+                      export DEBIAN_FRONTEND=noninteractive && \
                       sudo apt-get update && \
                       sudo apt-get install -y \
                         apt-transport-https \
@@ -66,25 +66,24 @@ stages:
                     # Autenticarse en Azure Container Registry utilizando nombre de usuario y contraseña
                     echo "Autenticándose en Azure Container Registry y ejecutando la imagen Docker..."
                     echo ${ACR_PASSWORD} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
-
+                                                              
                     # Descargar la imagen desde ACR
-                    sudo docker pull ${ACR_NAME}.azurecr.io/${IMAGE_NAME}:latest
+                    sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_NAME}:latest
 
-                    # Verificar si el contenedor Angular ya está en ejecución
-                    if sudo docker ps -a --format '{{.Names}}' | grep -Eq "^angular_container\$"; then
-                      echo "El contenedor 'angular_container' ya existe. Iniciándolo nuevamente..."
-                      sudo docker start angular_container
+                    # Verificar si el contenedor ya está en ejecución
+                    if sudo docker ps -a --format '{{.Names}}' | grep -Eq "^nginx_container\$"; then
+                      echo "El contenedor 'nginx_container' ya existe. Iniciándolo nuevamente..."
+                      sudo docker start nginx_container
                     else
-                      echo "El contenedor 'angular_container' no existe. Creándolo y ejecutándolo..."
-                      sudo docker run -d -p 80:80 --name angular_container ${ACR_NAME}.azurecr.io/${IMAGE_NAME}:latest
+                      echo "El contenedor 'nginx_container' no existe. Creándolo y ejecutándolo..."
+                      sudo docker run -d -p 80:80 --name nginx_container ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_NAME}:latest
                     fi
 
                     sudo docker ps
-                  displayName: 'Descargar y ejecutar la imagen Angular desde ACR'
+                  displayName: 'Descargar y ejecutar la imagen Nginx desde ACR'
                   failOnStderr: true
 
                 - script: |
-                    # Mostrar la URL para acceder a la aplicación Angular
-                    echo "La aplicación Angular está disponible en: http://${VM_IP_PUBLICA}"
-                  displayName: 'Mostrar detalles de conexión a la aplicación Angular'
-                  failOnStderr: false
+                    # Mostrar la URL para acceder a Nginx
+                    echo "La URL para acceder a Nginx es: http://${VM_IP_PUBLICA}/"
+                  displayName: 'Mostrar URL de la máquina virtual'
