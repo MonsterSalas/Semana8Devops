@@ -4,7 +4,7 @@ trigger:
       - main
 
 variables:
-  VM_IP_PUBLICA: '48.211.161.28'  # Se debe colocar la IP pública de tu máquina virtual
+  VM_IP_PUBLICA: '135.237.185.121'  # Se debe colocar la IP pública de tu máquina virtual
   IMAGE_NAME: 'dockergrupo9'  # Se debe colocar el Nombre de la imagen que será descargada desde ACR
   ACR_NAME: 'acrgrupo9'  # Se debe colocar el Nombre de tu Azure Container Registry (ACR)
   ACR_USERNAME: 'acrgrupo9'  # Se debe colocar el Nombre de usuario del ACR
