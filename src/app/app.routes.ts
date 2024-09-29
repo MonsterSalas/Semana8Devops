@@ -1,20 +1,29 @@
 import { Routes } from '@angular/router';
-import { IndexComponent } from './components/index/index.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { RecoveryComponent } from './components/recovery/recovery.component';
-import { RegisterComponent } from './components/register/register.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { ListaPersonasComponent } from './components/lista-personas/lista-personas.component';
+import { ArticleComponent } from './features/article/article.component';
+import { HomeComponent } from './features/home/home.component';
+import { LoginComponent } from './features/login/login.component';
+import { RegisterComponent } from './features/register/register.component';
+import { ResetpassComponent } from './features/resetpass/resetpass.component';
+import { CarComponent } from './features/car/car.component';
+import { ProfileComponent } from './features/profile/profile.component';
+import { AdminComponent } from './features/admin/admin.component';
+import { PayComponent } from './features/pay/pay.component';
+import { RecordComponent } from './features/record/record.component';
 
-
+/**
+ * Rutas de la aplicación.
+ */
 export const routes: Routes = [
-    { path: '', redirectTo: '/index', pathMatch: 'full' },
-    { path: 'index', component: IndexComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'profile', component: ProfileComponent },
-    { path: 'recovery', component: RecoveryComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'admin', component: AdminComponent},
-    { path: 'lista-personas', component: ListaPersonasComponent}
+  { path: '', redirectTo: '/Home', pathMatch: 'full' }, // Redirecciona a Home
+  { path: 'Home', component: HomeComponent }, // Ruta para el componente HomeComponent
+  { path: 'Article', component: ArticleComponent }, // Ruta para el componente ArticleComponent
+  { path: 'Login', component: LoginComponent }, // Ruta para el componente LoginComponent
+  { path: 'Register', component: RegisterComponent }, // Ruta para el componente RegisterComponent
+  { path: 'ResetPass', component: ResetpassComponent }, // Ruta para el componente ResetpassComponent
+  { path: 'Car', component: CarComponent }, // Ruta para el componente CarComponent
+  { path: 'Profile', component: ProfileComponent }, // Ruta para el componente ProfileComponent
+  { path: 'Admin', component: AdminComponent }, // Ruta para el componente AdminComponent
+  { path: 'Pay', component: PayComponent }, // Ruta para el componente PayComponent
+  { path: 'Record', component: RecordComponent }, // Ruta para el componente RecordComponent
+  { path: '**', redirectTo: '/Home', pathMatch: 'full' } // Ruta para manejar todas las rutas no definidas, redirige a Home
 ];

@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <h2 class="text-center text-custom mb-4">Historial de Compras</h2>
+  <div class="list-group" id="purchase-history">
+    <!-- Mensaje cuando no hay historial de compras -->
+    <div *ngIf="purchaseHistory.length === 0" class="text-center alert alert-info">No hay historial de compras.</div>
+    
+    <!-- Iteración sobre cada compra -->
+    <div *ngFor="let purchase of purchaseHistory" class="list-group-item">
+      <div class="row">
+        <div class="col-md-2">
+          <img [src]="purchase.imageUrl" alt="Imagen de la compra" class="img-thumbnail" width="100" height="100">
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-1">{{ purchase.name }}</h5>
+          <p class="mb-1">$ {{ purchase.price | number:'1.0-0'}}</p>
+          <small>Fecha: {{ purchase.date | date:'shortDate' }}</small>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
