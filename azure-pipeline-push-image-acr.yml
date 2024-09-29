@@ -7,7 +7,7 @@ variables:
   # Variables de entorno
   ACR_NAME: 'acrgrupo9' # Colocar el nombre de tu ACR
   IMAGE_NAME: 'dockergrupo9' # Colocar el Nombre de Imagen
-  SERVICE_CONNECTION_NAME: 'appimages' # Colocar nombre del Service Connection ubicado en Docker Registry-- Azure Container Registry
+  SERVICE_CONNECTION_NAME: 'appimages' # Colocar nombre del Service Connection ubicado en Docker Registry-- Azure Container Registr
 
 jobs:
   - job: BuildAndPush
